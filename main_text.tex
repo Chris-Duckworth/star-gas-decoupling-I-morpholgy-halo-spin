@@ -195,7 +195,7 @@ Only selecting galaxies with dominant coherent rotation (both clean and messy) f
 \end{equation}
 We define galaxies with $\Delta$PA > 30$^{\circ}$ to be significantly kinematically misaligned. \green{why?}
 
-\subsection{Morphology}
+\subsection{Morphology} \label{sec:morph_def}
 We classify the morphology of $\Delta$PA defined MaNGA galaxies through the formalism laid out by the citizen science project; GalaxyZoo2 \citep[GZ2;][]{willett2013}. GZ2 provides visually identified morphologies (and also measures finer morphological features e.g. bars, bulge size and edge-on disks) for 304,122 galaxies drawn from SDSS. GZ2, however, is not complete for the MaNGA sample and has been combined with an unpublished version; GalaxyZoo4 with debiasing code re-run to provide a consistent set of definitions for all MaNGA targets (see; \url{https://www.sdss.org/dr15/data_access/value-added-catalogs/?vac_id=manga-morphologies-from-galaxy-zoo}). 
 
 In a nutshell, GZ2 provides morphological classification through a decision tree of questions. Further questions are dependent on the answer to the previous to characterise a certain morphological type and identify finer features (see Figure 1 in \citep{willett2013} for this flowchart). From this, a table of vote fractions for each question combined with the total number of votes dictate a reliably sampled galaxy population with a set of desired morphological features. 
@@ -222,11 +222,11 @@ Firstly we consider all $\Delta$PA defined galaxies (i.e. selecting all stellar 
 
 \begin{figure}
 	\includegraphics[width=\linewidth]{total_pop/mpl8_pa_dist.pdf}
-    \caption{Distribution of kinematic misalignment as defined by $\Delta$PA for the total MaNGA sample (black solid line) \red{and matched TNG-100 sample.} $\Delta$PA is strongly peaked around 0$^{\circ}$ with a small boost close to 180$^{\circ}$.}
+    \caption{Probability density distribution of kinematic misalignment as defined by $\Delta$PA for the total MaNGA sample (black solid line) \red{and matched TNG-100 sample.} $\Delta$PA is strongly peaked around 0$^{\circ}$ with a small boost close to 180$^{\circ}$.}
     \label{fig:total_pa_dist}
 \end{figure}
 
-We now divide our MaNGA $\Delta$PA defined population at $\Delta$PA = 30$^{\circ}$ into aligned and misaligned (see \S\ref{sec:def_kin_mis} for choice of 30$^{\circ}$ reasoning). In the following, we also consider galaxies with defined stellar PAs but undefined H$\alpha$ due to central depletion or incoherent rotation/dispersion domination (NGRs). Figure \ref{fig:delPA_stelM} shows the distribution of stellar mass for these three populations. Kinematically aligned and misaligned galaxies appear to be consistent in stellar mass, whereas NGRs appear to be preferentially more massive. \citet{graham2018} previously demonstrated the tight correlation between stellar angular momentum and stellar mass for MaNGA (MPL-5; $\sim$2300 galaxies). Since NGRs are typically higher mass, it could be expected that they are less rotationally supported with respect to the $\Delta$PA defined populations. Figure \ref{fig:delPA_lambda_Re}, shows $\lambda_R$ vs $\epsilon$ for all $\Delta$PA defined galaxies and the medians for the aligned, misaligned and NGR samples. 
+We now divide our MaNGA $\Delta$PA defined population at $\Delta$PA = 30$^{\circ}$ into aligned and misaligned (see \S\ref{sec:def_kin_mis} for choice of 30$^{\circ}$ reasoning). In the following, we also consider galaxies with defined stellar PAs but undefined H$\alpha$ due to central depletion or incoherent rotation/dispersion domination (NGRs). Figure \ref{fig:delPA_stelM} shows the distribution of stellar mass for these three populations. Kinematically aligned and misaligned galaxies appear to be consistent in stellar mass, whereas NGRs appear to be preferentially more massive. \citet{graham2018} previously demonstrated the tight correlation between stellar angular momentum and stellar mass for MaNGA (MPL-5; $\sim$2300 galaxies). Since NGRs are typically higher mass, it could be expected that they are less rotationally supported with respect to the $\Delta$PA defined populations. Figure \ref{fig:delPA_lambda_Re}, shows $\lambda_R$ vs $\epsilon$ for all $\Delta$PA defined galaxies and the medians for the aligned, misaligned and NGR samples. Kinematically aligned galaxies reside at preferentially higher $\lambda_R$ and ellipticity with respect to NGRs. This is indicative of the dispersion dominance over rotation for disrupted gas poor and typically higher mass galaxies that we see in our NGR sample. Interestingly, kinematically misaligned galaxies also typically reside close to the slow rotator regime (defined by the black solid line). This suggests that NGRs and kinematically misaligned galaxies have had similar levels of disruption to their angular momentum, most likely due to interactions and mergers, in their recent history. \red{NGRs more massive and hence would naturally expect them to reside closer to slow rotator regime in comparison to misaligned galaxies. Expand on this discussion.}
 
 \begin{figure}
 	\includegraphics[width=\linewidth]{total_pop/delPA_stelM.pdf}
@@ -234,23 +234,28 @@ We now divide our MaNGA $\Delta$PA defined population at $\Delta$PA = 30$^{\circ
     \label{fig:delPA_stelM}
 \end{figure}
 
-\begin{figure}
+\begin{figure*}
 	\includegraphics[width=\linewidth]{total_pop/delPA_lambda_Re.pdf}
-    \caption{$\lambda_R$ against ellipticity, $\epsilon$ for al galaxies with defined $\Delta$PA. Medians for kinematically aligned ($\Delta$PA < 30$^{\circ}$), misaligned ($\Delta$PA > 30$^{\circ}$) and NGR are shown by the black, red and green dashed lines respectively. Aligned galaxies reside more typically in the fast rotator regime with higher $\lambda_R$ and $\epsilon$, whereas misaligned galaxies and NGRs reside closer to the slow rotator regime.}
+    \caption{$\lambda_R$ within 1.5$R_e$ against ellipticity, $\epsilon$ for all galaxies with defined $\Delta$PA. Medians for kinematically aligned ($\Delta$PA < 30$^{\circ}$), misaligned ($\Delta$PA > 30$^{\circ}$) and NGR are shown by the black, red and green dashed lines respectively. Aligned galaxies reside more typically in the fast rotator regime with higher $\lambda_R$ and $\epsilon$, whereas misaligned galaxies and NGRs reside closer to the slow rotator regime.}
     \label{fig:delPA_lambda_Re}
-\end{figure}
+\end{figure*}
 
 \subsection{Morphology}
+We now sub-divide the total population by morphology into ETGs, S0/Sas and Sb/Sds as defined in \S\ref{sec:morph_def}. Figure \ref{fig:morph_PA}, shows the distributions for each category. We find that for all morphological types, galaxies are most commonly aligned with strong peaks below $\Delta$PA $\sim 30^{\circ}$. ETGs show a flatter distribution than their later counterparts, as the most likely to exhibit misalignment. LTGs show deeper drop-offs above $\Delta$PA $\sim 40^{\circ}$, with a boost around $\Delta$PA = 180$^{\circ}$, seen most strongly for the Sb/Sds. We quantify the overall misalignment fractions in the first column of Table \ref{tab:mega_table}. This morphological difference in misalignment is likely a result of several factors. Gas rich LTGs have typically higher specific angular momentum, and hence, require a higher magnitude gas inflow to create an offset in rotation. Conversely, ETGs are more dispersion dominated and gas poor enabling smaller gas in-flows (or outflows) to create a kinematic misalignment. 
+
+These misalignment fractions of ETGs are roughly consistent with previous findings in \red{ATLAS3D} and for LTGs similar to those found in \red{SAMI}. 
+
+\red{The boost in the PDF around 180$^{\circ}$ suggests that near counter-rotation is a stable state for galaxies. This is seen most prominently in Sb/Sds. A possible explanation is that these rotation dominated galaxies host strong stellar torques, which act to realign gas on much faster timescales than in ETGs. Counter-rotators, however, remain stable and hence contribute proportionally higher to the misaligned distribution, as those at intermediate misalignments settle towards alignment. Stellar torques act to realign disrupted gas on the order of $\sim X$ dynamical timescales. Check $\lambda_{R}$ for counter-rots - are they lower ang mom due to significant disruption?!}
 
 \begin{figure}
 	\includegraphics[width=\linewidth]{morph/delPA_morph.pdf}
-    \caption{}
+    \caption{Probability density distributions of kinematic misalignment as defined by $\Delta$PA split on morphology. Distributions for the total population, ETGs, S0/Sa and Sb/Sds are shown by black solid, dotted red, dashed purple and dot-dashed blue lines respectively. Earlier type galaxies are more likely to be misaligned than later type galaxies. red{Add near counter-rotators to median lines.}}
     \label{fig:morph_PA}
 \end{figure}
 
 \begin{figure}
 	\includegraphics[width=\linewidth]{morph/delPA_stelM_morph.pdf}
-    \caption{}
+    \caption{Probability density distributions of stellar mass, $(M_{\ast}/M_{\odot})$ for aligned galaxies ($\Delta$PA < 30$^{\circ}$, misaligned galaxies ($\Delta$PA > 30$^{\circ}$) and NGRs for ETGs, S0/Sas and Sb/Sds (top to bottom). In each panel the aligned/misaligned are shown with solid lines with the aligned in the darker shade. NGRS are shown by dot-dashed lines. Each histogram is given with Poisson errors on each bin. The vertical lines denote the corresponding distribution's median. For ETGs, aligned galaxies are less massive than the misaligned sample. This trend, however, reverses for S0/Sas and Sb/Sds.}
     \label{fig:morph_stelM}
 \end{figure}
 
@@ -258,13 +263,13 @@ We now divide our MaNGA $\Delta$PA defined population at $\Delta$PA = 30$^{\circ
 
 \begin{figure*}
 	\includegraphics[width=\linewidth]{cen_sat/delPA_morph_lim.pdf}
-    \caption{}
+    \caption{Same as Figure \ref{fig:morph_PA}, however split by group membership into centrals (left) and satellites (right).}
     \label{fig:group_morph_PA}
 \end{figure*}
 
 \begin{figure*}
 	\includegraphics[width=\linewidth]{cen_sat/delPA_stelM_morph_lim.pdf}
-    \caption{}
+    \caption{Same as Figure \ref{fig:morph_stelM}, however split by group membership into centrals (left) and satellites (right). \red{We see that...}}
     \label{fig:group_morph_stelM}
 \end{figure*}
 
