@@ -27,7 +27,7 @@
 % installations will be fine) or prefer the old Computer Modern fonts, comment
 % out the following line
 \usepackage{newtxtext,newtxmath}
-% Depending on your LaTeX fonts installation, you might get better results with one of these:
+% Depending on your LaTeX fonts installation, you might get better results with one of these        :
 %\usepackage{mathptmx}
 %\usepackage{txfonts}
 
@@ -94,6 +94,7 @@ We use $\sim$ 4000 galaxies from the MaNGA IFU survey to investigate the morphol
 
 The factors leading to the decoupling of star and gas rotation are diverse and are strongly dependent on morphology (probably). We create a mock MaNGA observational sample in the cosmological scale hydrodynamical simulation IllustrisTNG to investigate the assembly history and driving factors of misalignment. We find this, that and those.
 
+Talk about potential use for misalignment to be additional proxy in finding lower angular momentum haloes.
 \end{abstract}
 
 % Select between one and six entries from the list of approved keywords.
@@ -211,8 +212,8 @@ The performance of the group finder has been tested on realistic mock catalogues
 
 For this work, we use the stellar mass based halo mass proxy for the SDSS main sample. \citet{lim2017} do not apply the group finder to the thin strips in the Southern Galatic Cap of SDSS main due to incomplete groups resulting from close proximity to borders. MaNGA galaxies in these strips are therefore unclassified by the group finder, resulting in 5088 matched galaxies with halo mass estimates and group membership classifications into central or satellite.
 
-\subsection{Pipe3D}
-We use spatially resolved derived properties, such as SFR gradients, gas mass, $\lambda_{R}$... using the Pipe3D pipeline. or maybe we dont. \citep{pipe3Da,pipe3Dvac}.
+% \subsection{Pipe3D}
+% We use spatially resolved derived properties, such as SFR gradients, gas mass, $\lambda_{R}$... using the Pipe3D pipeline. or maybe we dont. \citep{pipe3Da,pipe3Dvac}.
 
 \subsection{IllustrisTNG}
 The IllustrisTNG project \citep{marinacci18,naiman18,nelson18,pillepich18b,springel18} is a suite of magneto-hydrodynamic cosmological scale simulations incorporating an updated comprehensive model for galaxy formation physics \citep[as decribed in; ][]{weinberger17,pillepich18a} and making use of the moving-mesh code \texttt{AREPO} \citep{springel10,pakmor11,pakmor13}. For this work, we use the highest resolution fiducial run of TNG-100 (hereafter referred to as TNG) which follows the evolution of 2 x 1820$^3$ resolution elements within a periodic cube with box lengths of 110.7 Mpc (75 h$^{-1}$ Mpc). This corresponds to an average mass resolution of baryonic elements of 1.4 x 10$^6 M_{\odot}$ and 7.5 x 10$^6 M_{\odot}$ for dark matter. 
@@ -253,7 +254,7 @@ We fit position angles to MaNGA observations that have been voronoi bins contain
 \end{figure*}
 
 \section{Results}
-\subsection{Total population}
+\subsection{Total population} \label{sec:manga_total_pop}
 Firstly we consider all $\Delta$PA defined galaxies (i.e. selecting all stellar and H$\alpha$ velocity fields with clean or messy defined PAs) for MaNGA \red{and for our matched comparison sample in IllustrisTNG}. Figure \ref{fig:total_pa_dist}, shows the distribution of $\Delta$PA for MaNGA and IllustrisTNG. \red{Discussion about comparison between MaNGA and TNG}
 
 \begin{figure}
@@ -281,7 +282,7 @@ We now sub-divide the total population by morphology into ETGs, S0/Sas and Sb/Sd
 
 These misalignment fractions of ETGs are roughly consistent with previous findings in \red{ATLAS3D} and for LTGs similar to those found in \red{SAMI}. 
 
-\red{The boost in the PDF around 180$^{\circ}$ suggests that near counter-rotation is a stable state for galaxies. This is seen most prominently in Sb/Sds. A possible explanation is that these rotation dominated galaxies host strong stellar torques, which act to realign gas on much faster timescales than in ETGs. Counter-rotators, however, remain stable and hence contribute proportionally higher to the misaligned distribution, as those at intermediate misalignments settle towards alignment. Stellar torques act to realign disrupted gas on the order of $\sim X$ dynamical timescales. Check $\lambda_{R}$ for counter-rots - are they lower ang mom due to significant disruption?!}
+\red{The boost in the PDF around 180$^{\circ}$ suggests that near counter-rotation is a stable state for galaxies. This is seen most prominently in Sb/Sds. A possible explanation is that these rotation dominated galaxies host strong stellar torques, which act to realign gas on much faster timescales than in ETGs. Counter-rotators, however, remain stable and hence contribute proportionally higher to the misaligned distribution, as those at intermediate misalignments settle towards alignment. Stellar torques act to realign disrupted gas on the order of $\sim X$ dynamical timescales. Check $\lambda_{R}$ for counter-rots - are they lower ang mom due to significant disruption?!} Interestingly, galaxies that exhibit near-counter rotation ($\Delta$PA $\geq$ 150$^{\circ}$) have similar angular momentum to the general misaligned population ($\Delta$PA $\geq$ 30$^{\circ}$), significantly lower than the aligned counterparts. \red{This is indicative of the previous disruption that the galaxies experienced...}
 
 \begin{figure}
 	\includegraphics[width=\linewidth]{morph/delPA_morph.pdf}
@@ -329,49 +330,83 @@ Group membership is important for dictating the evolution of a galaxy and hence 
     \label{fig:group_morph_stelM}
 \end{figure*}
 
-\section{Origins of misalignment in TNG}
+\section{Properties of misaligned galaxies in TNG}
 In this section, we utilise the mock sample created in TNG to interpret the properties of kinematically misaligned galaxies in MaNGA and isolate the driving mechanisms. 
 
-\subsection{Morphology}
 \red{discuss inability to use individual matchings to describe sample - point out difficulties with TNG galaxy sample?}. 
 We define the morphology of the mock MaNGA sample based on the instantaneous star formation rate within twice the stellar half mass radius of a given galaxy with respect to all other subhalos in TNG. The star forming main sequence for all subhalos is found iteratively by fitting a power law as a function of mass. A galaxy is then flagged into one of three categories; star forming, green valley or quenched depending on its deviation above or below the main sequence \citep{pillepich2019}. This split reproduces the qualitative trends of misalignment probability and morphology (see Appendix \ref{sec:mock_appendix} for more detail). In the following subsections, we follow the evolutionary history of the mock sample split on this morphology definition. 
 
-\subsubsection{Angular momentum}
-\red{Compare to the ang mom loss seen in misaligned manga galaxies.}
+\subsection{Angular momentum}
+In this sub-section, we consider the angular momentum content of our TNG mock sample back to $z=1$ for stars, gas and dark matter individually. Angular momentum for our TNG galaxies is defined by the intrinsic specific angular momentum of their particles
+\begin{equation}
+J_{k} = \frac{1}{\sum_{n} m^{(n)}} \sum_{n} m^{(n)}\boldsymbol{x}^{(n)} \times \boldsymbol{v}^{(n)}
+\end{equation}
+where $\boldsymbol{v}^{(n)}$ is the velocity of each particle relative to the centre of mass for the subhalo. $\boldsymbol{x}^{(n)}$ is the position of a given particle with respect to the position of the most gravitationally bound particle in the subhalo. We choose this definition since the centre of mass velocity can be biased by structure at large radii and hence may spuriously not represent the true rotational centre. $k$ is the particle/cell type referring to either stars, gas or dark matter. For stars and gas this is calculated within the 3D radius equivalent to sky coverage assigned by the mock IFU observation. Dark matter is calculated for all particles assigned to the subhalo by the subfind algorithm. 
+
+Figure \ref{fig:sJ_evo} shows the specific angular momentum evolution from $z=1$ for all components split on group membership and morphology. We see that similar to the observational sample (see \S\ref{sec:manga_total_pop}), misaligned galaxies in observations are significantly lower angular momentum than their aligned counterparts at $z=0$ for the stellar components. This is reflected in all components (stars, gas, DM) to various degrees for all morphologies and central/satellite definition. Interestingly, while misalignment between stars and gas may itself be a transient property, those misaligned at $z = 0$ reside in dark matter haloes with \textit{fundamentally lower angular momentum} which persists past $z = 1$. 
 
 \begin{figure*}
-	\includegraphics[width=\linewidth]{tng_results/sJ_evo_mass_control.pdf}
-    \caption{Specific angular momentum evolution from $z = 1$ for all star, gas and DM particles within the 3D radius assigned by the mock IFU observation (left to right). The evolution is taken as the median at each timestep for all galaxies of that category with errorbars showing the standard error. Each panel displays the evolution split into morphologies; quenched (red), green valley (purple) and star forming (blue) and also $\Delta$PA $< 30^{\circ}$ (dotted) and $> 30^{\circ}$ (dashed). For comparison, the top (red), middle (purple) and bottom (blue) 33\% mass galaxies are shown by the checkered boxes to show the natural increase of specific angular momentum with mass (i.e. number of particles). Kinematically misaligned galaxies selected at $z=0$ have notably lower specific angular momentum for all of stars, gas and dark matter. For the }
+	\includegraphics[width=\linewidth]{tng_results/sJ_evo_cen_sat.pdf}
+    \caption{Specific angular momentum evolution from $z = 1$ for all star, gas and DM particles within the 3D radius assigned by the mock IFU observation (left to right). The evolution is taken as the median at each timestep for all galaxies of that category with errorbars showing the standard error. The top (bottom) row shows the evolution for central (satellite) galaxies. Each panel displays the evolution split into morphologies; quenched (red), green valley (purple) and star forming (blue) and also $\Delta$PA $< 30^{\circ}$ (dotted) and $> 30^{\circ}$ (dashed). Kinematically misaligned galaxies selected at $z=0$ have notably lower specific angular momentum for all of stars, gas and dark matter.}
     \label{fig:sJ_evo}
 \end{figure*}
 
+We note that particle based calculations of specific angular momentum scales with the number of particles. This results in more massive galaxies having higher $J_{i}$ and further, quenched galaxies (that are typically more massive) having higher $J_{i}$ than their later type counterparts. While there is only a small difference in-between the mass distributions of our aligned and misaligned samples (see Figure \ref{fig:TNG_mpl8_stelM}), to ensure our signal is not simply driven by mass we calculate the residuals of $J_{star}$ with respect to a typical galaxy of that mass. The residuals, $\Delta J_{star}$ are calculated by fitting a polynomial to the distribution of $J_{star}$ vs $M_{\ast}$ for the subhalos (all mock observations, regardless if $\Delta$PA is well defined) at each snapshot. $\Delta J_{star}$, is then defined as the deviation of a given galaxy away from the expectation of the fitted line at that mass. Since the trends are qualitatively consistent regardless of morphology, Figure \ref{fig:sJ_evo_residual} shows the specific angular momentum residuals for the total population. For completeness we also include the expectation for all matched subhaloes regardless of if $\Delta$PA is well defined. Misaligned galaxies ($\Delta$PA $\geq 30^{\circ}$) for both centrals and satellites show intrinsically lower $\Delta J_{star}$ indicative that it is not an effect due to mass. In addition, there is a relative evolution where $\Delta J_{stars}$ diverges from $z \sim 0.5$ so that misaligned galaxies have even lower stellar angular momentum with respect to the aligned galaxies in recent times. \red{We discuss the origin of this more recent turnoff in the section about black hole size and gas mass fraction}.
+
 \begin{figure*}
-	\includegraphics[width=\linewidth]{tng_results/3D_pa_evo.pdf}
-    \caption{Evolution of the 3D offset (in degrees) between the principal spin axes of; stars and gas (left), stars and dark matter (middle) and gas and dark matter (right) from $z=1$. The evolution is taken as the median at each timestep for all galaxies of that category with errorbars showing the standard error. Each panel displays the evolution split into morphologies; quenched (red), green valley (purple) and star forming (blue) and also $\Delta$PA $< 30^{\circ}$ (dotted) and $> 30^{\circ}$ (dashed).}
+	\includegraphics[width=\linewidth]{tng_results/delta_j_stars_residuals.pdf}
+    \caption{The specific angular momentum residuals from $z=1$ for all star particles within the 3D radius assigned by the mock IFU observation. The residual is calculated as the deviation away from the expectation for a galaxy of that mass at each snapshot. The evolution of the residual is taken as the median at each timestep for all galaxies of that category with errorbars showing the standard error. The right (left) panel shows the evolution for central (satellite) galaxies. Each panel displays the evolution for all subhaloes (yellow), of which have a defined $\Delta$PA (black solid), aligned galaxies $\Delta$PA $< 30^{\circ}$ (black dotted) and misaligned $> 30^{\circ}$ (black dashed). We see that the difference in angular momentum between aligned and misaligned galaxies is not due to differences in mass. In addition we note a marked deviation of misaligned galaxies to even lower angular momentum in recent times. \red{update color scheme to be consistent with with ring plots.}}
+    \label{fig:sJ_evo_residual}
+\end{figure*}
+
+To conclude this section we now consider the directional offsets between the angular momentum vectors of the stars, gas and dark matter. These are calculated from
+\begin{equation} \label{eq:alpha}
+    \alpha_{3D} = \text{arccos} \frac{\boldsymbol{J_{i}} \cdot \boldsymbol{J_{j}}}{\left| \boldsymbol{J_{i}} \right| \left| \boldsymbol{J_{j}} \right|},
+\end{equation}
+where $i, j$ refer to either stars, gas or dark matter. As for the magnitudes of angular momentum, the star and gas vectors are calculated within a 3D radius set to that of the IFU footprint and the dark matter vector is calculated for all particles assigned to the subhalo by subfind. Figure \ref{fig:3D_alpha_evo} shows the evolution of the 3D offsets between each of stars, gas and DM respectively. 
+
+As expected splitting our sample on $\Delta$PA results in significantly higher $\alpha_{STARS - DM}$ at $z = 0$. In the middle panel, we see that $\alpha_{STARS - DM} \sim 50^{\circ}$ on average for galaxy mass subhaloes which is consistent with previous work \citep[e.g. see;][]{chisari+17}. For most component offsets, we see that the average $\Delta$PA misaligned population deviates away from aligned galaxies around $z \sim 0.5$. In contrast to the \textit{magnitude} of angular momentum of each component being systematically lower from at least $z = 1$ indicates the transient nature of misalignment. At any given time, the lower angular momentum haloes are simply more prone to misalignment in the baryons. This explains why ETGs are far more likely to exhibit star - gas misalignment than rotation dominated LTGs. 
+
+\begin{figure*}
+	\includegraphics[width=\linewidth]{tng_results/3D_pa_evo_cen_sat.pdf}
+    \caption{Evolution of the 3D offset (in degrees) between the principal spin axes of; stars and gas (left), stars and dark matter (middle) and gas and dark matter (right) from $z=1$. The evolution is taken as the median at each timestep for all galaxies of that category with errorbars showing the standard error. The top (bottom) row shows the evolution for central (satellite) galaxies. Each panel displays the evolution split into morphologies; quenched (red), green valley (purple) and star forming (blue) and also $\Delta$PA $< 30^{\circ}$ (dotted) and $\geq 30^{\circ}$ (dashed).}
     \label{fig:3D_alpha_evo}
 \end{figure*}
 
-\subsubsection{Black hole properties}
+\subsection{Assembly history}
+We now consider the $z = 0$ content and assembly history of stellar mass, star forming gas and black holes for our TNG mock sample split on morphology and misalignment. Since here we make no direct comparison to observations at $z = 0$, we no longer restrict our analysis to only star or gas particles within a radius of the IFU footprint so that we can better understand the complete assembly history of the sub-population. \red{We however note that in observations that gas mass fractions are lower for misaligned objects as we see here.}
 
-\begin{figure}
-	\includegraphics[width=\linewidth]{tng_results/BH_mass_timestep_norm.pdf}
-    \caption{Evolution of the median black hole mass normalised by stellar mass from $z=1$. Each line shows the median and standard error for all (black), quenched (red), green valley (purple) and star forming (blue) galaxies. The solid line denotes the total population, dotted for $\Delta$PA $< 30^{\circ}$ and dashed for $> 30^{\circ}$. Black hole masses are typically much larger with respect to stellar mass for misaligned galaxies.}
+\subsubsection{Stellar mass}
+In Figure \ref{fig:stel_mass_evo}, we consider the assembly time of stellar mass in our mock sample split on morphology, misalignment and group membership. We find a clear correlation with morphology for both centrals and satellites where earlier types form more of their stellar mass later. \red{why is this the case? cooling of gas - shocked gas? - gas temperature? - rate of star formation and gas accretion?}
+
+\begin{figure*}
+	\includegraphics[width=\linewidth]{tng_results/stel_mass_timestep_norm_cen_sat.pdf}
+    \caption{Evolution of the median stellar mass assembly fraction for centrals (left) and satellites (right). The stellar mass assembly fraction for each object is defined as the stellar mass at the given snapshot normalised by the stellar mass at $z = 0$. Each line shows the median and standard error for quenched (red), green valley (purple) and star forming (blue) galaxies. The solid line denotes the total population, dotted for $\Delta$PA $< 30^{\circ}$ and dashed for $\geq 30^{\circ}$.}
+    \label{fig:stel_mass_evo}
+\end{figure*}
+
+\subsubsection{Black hole mass}
+We now investigate the relationship between black hole mass and kinematic misalignment. In Figure \ref{fig:BH_mass}, we show the black hole mass evolution from $z = 1$ normalised by the stellar mass of the objects at each timestep. We see that for misaligned galaxies of all types, both central and satellite, have significantly higher mass black holes at least from $z \sim 0.1$ and in many cases going back much further. This is indicative that the size and hence feedback of the black hole plays as significant role in leading to misalignment. 
+
+\begin{figure*}
+	\includegraphics[width=\linewidth]{tng_results/BH_mass_timestep_norm_cen_sat.pdf}
+    \caption{Evolution of the median black hole mass normalised by stellar mass from $z=1$ for centrals (left) and satellites (right). Each line shows the median and standard error for all quenched (red), green valley (purple) and star forming (blue) galaxies. The solid line denotes the total population, dotted for $\Delta$PA $< 30^{\circ}$ and dashed for $\geq 30^{\circ}$. Black hole masses are typically much larger with respect to stellar mass for misaligned galaxies.}
     \label{fig:BH_mass}
-\end{figure}
+\end{figure*}
 
-\subsubsection{Gas properties}
+\subsection{Gas mass and metallicity}
 
-\begin{figure}
-	\includegraphics[width=\linewidth]{tng_results/gas_mass_timestep_norm.pdf}
-    \caption{Evolution of the median gas mass normalised by stellar mass from $z=1$. Each line shows the median and standard error for all (black), quenched (red), green valley (purple) and star forming (blue) galaxies. The solid line denotes the total population, dotted for $\Delta$PA $< 30^{\circ}$ and dashed for $> 30^{\circ}$. Gas masses are typically much smaller with respect to stellar mass for misaligned galaxies.}
+\begin{figure*}
+	\includegraphics[width=\linewidth]{tng_results/gas_mass_timestep_norm_cen_sat.pdf}
+    \caption{Evolution of the median gas mass normalised by stellar mass from $z=1$ for centrals (left) and satellites (right). Each line shows the median and standard error for quenched (red), green valley (purple) and star forming (blue) galaxies. The solid line denotes the total population, dotted for $\Delta$PA $< 30^{\circ}$ and dashed for $\geq 30^{\circ}$. Gas masses are typically much smaller with respect to stellar mass for misaligned galaxies.}
     \label{fig:gas_mass}
-\end{figure}
+\end{figure*}
 
-\begin{figure}
-	\includegraphics[width=\linewidth]{tng_results/gas_metallicity_nonorm.pdf}
-    \caption{Evolution of the un-normalised gas phase metallicity from $z=1$. Each line shows the median and standard error for all (black), quenched (red), green valley (purple) and star forming (blue) galaxies. The solid line denotes the total population, dotted for $\Delta$PA $< 30^{\circ}$ and dashed for $> 30^{\circ}$.}
+\begin{figure*}
+	\includegraphics[width=\linewidth]{tng_results/gas_metallicity_nonorm_cen_sat.pdf}
+    \caption{Evolution of the un-normalised gas phase metallicity from $z=1$ for centrals (left) and satellites (right). Each line shows the median and standard error for quenched (red), green valley (purple) and star forming (blue) galaxies. The solid line denotes the total population, dotted for $\Delta$PA $< 30^{\circ}$ and dashed for $\geq 30^{\circ}$.}
     \label{fig:gas_metallicity}
-\end{figure}
+\end{figure*}
 
 \begin{figure*}
 	\includegraphics[width=\linewidth]{tng_results/gas_donut_centrals_PA_split.pdf}
@@ -385,21 +420,27 @@ We define the morphology of the mock MaNGA sample based on the instantaneous sta
     \label{fig:sat_gas_donut}
 \end{figure*}
 
-\subsubsection{Merger history}
+\subsection{Merger history}
 
 \begin{figure}
 	\includegraphics[width=\linewidth]{tng_results/time_since_last_merger_centrals_PA_split.pdf}
-    \caption{}
+    \caption{Time since last (major, minor, all mass ratios) mergers for central galaxies.}
     \label{fig:last_merger_cen}
 \end{figure}
 
 \begin{figure}
 	\includegraphics[width=\linewidth]{tng_results/time_since_last_merger_satellites_PA_split.pdf}
-    \caption{}
+    \caption{Time since last (major, minor, all mass ratios) mergers for satellite galaxies.}
     \label{fig:last_merger_sat}
 \end{figure}
 
-\subsection{\red{individual case studies???}}
+\section{Discussion}
+
+We note the close relationship of our findings of our mock TNG sample with respect to the work of \citet{starkenburg+19}. They investigate the origin of star-gas counter-rotation (i.e $ > 90^{\circ}$) using individual case studies of low mass galaxies (i.e $2 \times 10^{9} < M_{\ast} < 5 \times 10^{10}$) in the original Illustris simulation \red{check this description}. Despite extending the mass range and only considering overall trends for aligned and misaligned galaxies split at $\Delta$PA$= 30^{\circ}$ in the updated physics prescriptions of TNG, we still find the same qualitative trends of lower angular momentum, lower gas mass and larger black holes for our misaligned samples. Black hole feedback clearly holds an important role in disrupting the angular momentum content of galaxies leading to the future increased likelihood of star-gas misalignment in the prescriptions of both Illustris and TNG. 
+
+The relative importance of black hole activity in creating misaligned \textit{real} galaxies with respect to internal processes is yet to be fully determined. \citet{chen2016} and \citet{jin2016} construct a picture of misaligned galaxies acquiring new gas from gas-rich dwarfs which disrupt angular momentum leading to increased inflow and boosted star formation in central regions. \textit{Could the same inflows then lead to triggering of AGN or is it the feedback from the black hole creating the misalignment in the first place?}. \citet{roy2018} determine that around 5-10\% of quiescent galaxies in MaNGA have large scale AGN-driven winds characterised by high velocity bi-symmetric flows in H$\alpha$ leading to a distinct gas-star misalignments of $\sim 90^{\circ}$. While this appears to be a special galaxy population of fast rotating ETGs, this demonstrates that the role of feedback is intrinsically linked to the gas misalignment in both simulation and observation to some degree. The transient nature of both AGN and kinematic misalignment make causality a difficult prospect, however, we leave the correlation between AGN and the prevalence of kinematic misalignment the focus of future work. 
+
+We also note TNGs ability to not only recreate a reasonable distribution of $\Delta$PAs with respect to the MaNGA sample (see Fig \ref{fig:total_pa_dist}) once accounting for variances in mass between the $\Delta$PA defined samples in MaNGA and TNG (\red{because the misaligned TNG sample is slightly more massive which may mean more galaxies are likely to be misaligned}) but also reproducing the strong trends with morphology found in observations (see Fig \ref{fig:group_morph_TNG} in comparison to \ref{fig:group_morph_PA}). 
 
 \bibliographystyle{mnras}
 \bibliography{biblio.bib}
@@ -428,8 +469,8 @@ Figure \ref{fig:group_morph_TNG}, shows the $\Delta$PA distribution for the TNG 
     \label{fig:group_morph_TNG}
 \end{figure*}
 
-\section{PA vs absolute offset}
-A key assumption of this work is the ability for the projected $\Delta$PA to be a reliable estimator of the actual 3D offset between star and gas rotation axes. Figure \ref{fig:PA_residual} shows the distributions of the difference between $\Delta$PA and the 2D and 3D offsets between the angular momentum principal axes of stars and gas. \red{see description in section X for details of calculation}. $\Delta$PA is a reasonable measure of the true 3D offset which can be modelled as a Gaussian centred on 0$^{\circ}$ with a standard deviation of 17.6$^{\circ}$ (green dotted line). The deviation of the 2D projection from the true 3D offset (black line) has a standard deviation of 13$^{\circ}$, demonstrating that the variation is both due to projection and the noise associated with observations.
+\section{PA vs absolute offset} \label{sec:PA_test}
+A key assumption of this work is the ability for the projected $\Delta$PA to be a reliable estimator of the actual 3D offset between star and gas rotation axes. Figure \ref{fig:PA_residual} shows the distributions of the difference between $\Delta$PA and the 2D and 3D offsets between the angular momentum principal axes of stars and gas. See equation \ref{eq:alpha} for calculation of the 3D offset; the 2D equivalent is simply a projection of this onto the XY plane. $\Delta$PA is a reasonable measure of the true 3D offset which can be modelled as a Gaussian centred on 0$^{\circ}$ with a standard deviation of 17.6$^{\circ}$ (green dotted line). The deviation of the 2D projection from the true 3D offset (black line) has a standard deviation of 13$^{\circ}$, demonstrating that the variation is both due to projection and the noise associated with observations.
 
 \red{discuss different particle selection.}
 
