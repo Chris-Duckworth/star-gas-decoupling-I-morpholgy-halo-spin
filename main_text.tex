@@ -168,9 +168,7 @@ Spaxels with spuriously high velocities (e.g. > 1000km/s relative to target's ce
 Accurate PA estimation is naturally more difficult for near edge-on galaxies. disc obscuration and a smaller surface area allow individual Voronoi bins to more easily bias overall PA fits. This inherently leads to a larger scatter in PA fitting around the true value, especially due to central spaxels during symmetrization.
 
 \subsection{Visual Classifications} \label{sec:visual_classifications}
-Global position angles are only well defined for coherently rotating velocity fields. Those with a decoupling between inner and outer regions due to warps or kinematically decoupled cores (KDCs) are poorly described by global PAs. 
-
-To select a clean sample of galaxies with well defined global PAs, we visually classify all of the velocity fields after pre-processing and PA fitting. Both stellar and H$\alpha$ velocity fields are characterised into 3 categories;
+Global position angles are only well defined for coherently rotating velocity fields. Those with a decoupling between inner and outer regions due to warps or kinematically decoupled cores (KDCs) are poorly described by global PAs. To select a clean sample of galaxies with well defined global PAs, we visually classify all of the velocity fields after pre-processing and PA fitting. Both stellar and H$\alpha$ velocity fields are characterised into 3 categories;
 \begin{itemize}
     \item Dominant coherent rotation and well defined PA.
     \item Dominant coherent rotation but with higher noise or more complex motion resulting in a usable PA fit but with higher typical errors. Highly inclined velocity fields with a higher likelihood of biased PAs fits are included in this category. 
@@ -180,11 +178,11 @@ To select a clean sample of galaxies with well defined global PAs, we visually c
 Kinematic features are also identified. Both stellar and H$\alpha$ velocity fields are classified into;
 \begin{itemize}
     \item Kinematically decoupled core (i.e. those with a central component that rotates in a different direction ($> 30^{\circ}$) with respect to the overall galaxy rotation)
-    \item Warp (velocity field of central region is warped with respect to outskirts)
+    \item Warp (velocity field of central region is warped with respect to outskirts. \red{This may be due to a bar, oval distortions or accretion of fresh material with different angular momentum to the bulk rotation)}
     \item Merger (ongoing merger or neighbour identified within IFU. Only those with obvious disruption are followed up in photometry.)
     \item No feature
 \end{itemize}
-The majority of those with kinematic features have poorly defined global PAs and hence are flagged as do not use for the previous flag. 
+The majority of those with kinematic features have poorly defined global PAs and hence are flagged as do not use for the previous flag. \red{The galaxies we refer to as `warped' represents a combination of galaxies with bars, oval distortions and differential rotation in the disk \citep[e.g.][]{barrera2014}. We direct the reader to \citet{stark2018} for an approach to separate the galaxies we refer to as warps. In this work, we enforce axisymmetry for our sample and hence make no use of galaxies that have significant variations in their PA as a function of radius.}
 
 For studies of quenching it may be useful to consider galaxies that have defined stellar rotation but lack coherent motion in the ionized gas. For galaxies that have usable PAs for the stellar velocity but unusable PAs for the ionized gas, we define a further classification of the gas velocity field;
 \begin{itemize}
